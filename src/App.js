@@ -4,14 +4,18 @@ function App() {
   return (
     <div>
       <h1>Hello</h1>
-      <Potato />
+      <Food fav="kimchi"/>
+      <Food fav="ramen"/>
+      <Food fav="samgiopsal"/>
+      <Food fav="chukumi"/>
     </div>
   );
 }
 
-function Potato() {
+function Food(props) {
+  console.log(props);
   return (
-    <h1>I like potato</h1>
+    <h1>I like { props.fav}</h1>
   );
 }
 
