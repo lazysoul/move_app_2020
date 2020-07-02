@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function App() {
+function Food({name, picture, rating}) {
+  console.log({name});
   return (
-    <div>
-      <h1>Hello</h1>
-      {foodILike.map(dish => (<Food key={dish.id} name={dish.name} picture={dish.image} />))}
-    </div>
+    <div>    
+      <h2>I like {name}</h2>
+      <h4>{rating}/5.0</h4>
+      <img src={picture} alt={name}/>
+  </div>
   );
 }
 
@@ -44,14 +47,19 @@ const foodILike = [
   },
 ];
 
-function Food({name, picture}) {
-  console.log({name});
+function App() {
   return (
-    <div>    
-      <h1>I like {name}</h1>
-      <img src={picture} alt={name}/>
-  </div>
+    <div>
+      <h1>Hello</h1>
+      {foodILike.map(dish => (<Food key={dish.id} name={dish.name} picture={dish.image} rating={dish.rating} />))}
+    </div>
   );
 }
+
+Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  rating: PropTypes.number,
+};
 
 export default App;
